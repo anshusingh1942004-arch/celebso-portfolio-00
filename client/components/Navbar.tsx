@@ -26,11 +26,13 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Marketing", href: "#marketing" },
-  { name: "Technology", href: "#technology" },
-  { name: "Projects", href: "#projects" },
-];
+    { name: "Home", to: "/" },
+    { name: "Marketing", to: "/marketing" },
+    { name: "Technology", to: "/technology" },
+    { name: "Projects", to: "/projects" },
+  
+    
+  ];
 
   const celebsoGroups = [
     "Tech Celebso",
@@ -81,7 +83,7 @@ export function Navbar() {
                                 {navLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.href}
+                to={link.to}
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
               >
