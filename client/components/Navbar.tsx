@@ -26,12 +26,12 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", to: "/" },
+    // { name: "Home", to: "/" },
     { name: "Marketing", to: "/marketing" },
     { name: "Technology", to: "/technology" },
     { name: "Projects", to: "/projects" },
-  
-    
+
+
   ];
 
   const celebsoGroups = [
@@ -53,13 +53,13 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-       <Link to="/" className="flex items-center gap-2">
-  <img
-    src={logo}
-    alt="CELEBSO"
-    className="h-14 md:h-20 object-contain"
-  />
-</Link>
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src={logo}
+            alt="CELEBSO"
+            className="h-14 md:h-20 object-contain"
+          />
+        </Link>
 
 
         {/* Desktop Nav */}
@@ -80,16 +80,16 @@ export function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-                                {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.to}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.to}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
+            >
+              {link.name}
+            </Link>
+          ))}
           <Button
             variant="ghost"
             size="icon"
@@ -107,7 +107,7 @@ export function Navbar() {
 
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-4">
-           <Button
+          <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
@@ -132,6 +132,30 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-white/10 animate-in fade-in slide-in-from-top-5">
           <div className="flex flex-col p-6 gap-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex items-center justify-between text-lg font-medium text-foreground/80 hover:text-primary transition-colors">
+                  Celebso Groups
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+              </DropdownMenuTrigger>
+
+              <DropdownMenuContent
+                align="start"
+                className="w-56 glass border-white/10"
+              >
+                {celebsoGroups.map((group) => (
+                  <DropdownMenuItem
+                    key={group}
+                    className="text-foreground/80 hover:text-primary hover:bg-white/5 focus:bg-white/5 cursor-pointer"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {group}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             {navLinks.map((link) => (
               <Link
                 key={link.name}
