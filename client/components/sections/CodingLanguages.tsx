@@ -48,7 +48,7 @@ export function CodingLanguages() {
               key={item.name}
               className="flex flex-col items-center gap-3"
             >
-              <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:scale-105 transition">
+              <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:scale-105 transition cursor-pointer">
                 <img
                   src={item.logo}
                   alt={item.name}

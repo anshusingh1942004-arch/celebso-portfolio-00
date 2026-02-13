@@ -110,7 +110,7 @@ export function Projects() {
   const projects = activeCategory === "technology" ? techProjects : marketingProjects;
 
   return (
-    <section className="py-24 px-6 bg-secondary/10 scroll-mt-28" id="projects">
+    <section className="py-24 px-6 bg-secondary/10 " id="projects">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.h2
@@ -171,7 +171,7 @@ function ProjectCard({ title, category, icon, image, tags, index }: Project & { 
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group relative rounded-3xl overflow-hidden bg-background border border-white/5 hover:border-primary/30 transition-all duration-500 shadow-xl"
+      className="group relative rounded-3xl overflow-hidden bg-background border border-white/5 hover:border-primary/30 transition-all duration-500 shadow-xl cursor-pointer"
     >
       <div className="aspect-[4/3] overflow-hidden">
         <img
