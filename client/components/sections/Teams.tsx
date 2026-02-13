@@ -7,6 +7,7 @@ import image2 from "../../assets/harpreet.jpeg";
 import image3 from "../../assets/arti.jpeg";
 import image4 from "../../assets/om.jpeg";
 import image5 from "../../assets/ansh.png";
+import image6 from "../../assets/sammer.png";
 
 
 
@@ -54,8 +55,8 @@ export function Teams() {
         { name: "Tushar Prasad", role: "Full Stack Developer", image: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" },
         { name: "Anurag Sen", role: "Frontend Developer", image: "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" },
         { name: "Ashish", role: "Full Stack Developer", image: " " },
-        { name: "Ayatullah Qamar", role: "Data Analytics" },
-        { name: "Anshu Singh", role: " Full Stack Developer",image: image5 }
+        { name: "Ayatullah Qamar", role: "Data Analytics",image : image6 },
+        { name: "Anshu Singh", role: " Full Stack Developer",image: image5 },
       ]
     },
     {

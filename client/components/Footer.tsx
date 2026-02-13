@@ -10,7 +10,7 @@ export function Footer() {
     location.pathname === "/projects";
 
   return (
-    <footer className="bg-background border-t border-white/5 py-12 px-6">
+   <footer className="bg-background border-t border-white/5 pt-2 pb-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
 
         {/* Left block (always visible) */}

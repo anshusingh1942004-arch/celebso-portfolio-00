@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "./ThemeProvider";
 import { Moon, Sun, Menu, X, Rocket, Zap, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
+  const location = useLocation();
   const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -53,13 +54,25 @@ export function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link
+          to="/"
+          onClick={() => {
+            if (location.pathname === "/") {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }
+          }}
+          className="flex items-center gap-2"
+        >
           <img
             src={logo}
             alt="CELEBSO"
             className="h-14 md:h-20 object-contain"
           />
         </Link>
+
 
 
         {/* Desktop Nav */}
