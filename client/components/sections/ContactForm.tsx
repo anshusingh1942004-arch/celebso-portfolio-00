@@ -1,4 +1,60 @@
+import { useState } from "react";
+
 export function ContactForm() {
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e: any) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(form)
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("Query sent successfully!");
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          message: ""
+        });
+      } else {
+        setStatus("Failed to send query");
+      }
+
+    } catch (err) {
+      console.error(err);
+      setStatus("Server error. Please try later.");
+    }
+
+    setLoading(false);
+  };
+
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
@@ -12,39 +68,63 @@ export function ContactForm() {
           </p>
         </div>
 
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6 glass-card p-8 rounded-3xl">
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 glass-card p-8 rounded-3xl"
+        >
 
           <input
+            name="name"
+            value={form.name}
+            onChange={handleChange}
             type="text"
             placeholder="Your Name"
+            required
             className="px-4 py-3 rounded-xl bg-background border border-white/10 outline-none"
           />
 
           <input
+            name="email"
+            value={form.email}
+            onChange={handleChange}
             type="email"
             placeholder="Email Address"
+            required
             className="px-4 py-3 rounded-xl bg-background border border-white/10 outline-none"
           />
 
           <input
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
             type="text"
             placeholder="Phone Number"
             className="px-4 py-3 rounded-xl bg-background border border-white/10 outline-none md:col-span-2"
           />
 
           <textarea
+            name="message"
+            value={form.message}
+            onChange={handleChange}
             placeholder="Describe your requirement"
             rows={5}
+            required
             className="px-4 py-3 rounded-xl bg-background border border-white/10 outline-none md:col-span-2 resize-none"
           />
 
           <button
             type="submit"
+            disabled={loading}
             className="md:col-span-2 w-fit mx-auto rounded-full bg-primary text-white px-8 py-3 font-semibold hover:opacity-90 transition"
           >
-            Submit Query
+            {loading ? "Sending..." : "Submit Query"}
           </button>
 
+          {status && (
+            <p className="md:col-span-2 text-center text-sm text-foreground/70">
+              {status}
+            </p>
+          )}
 
         </form>
 
