@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-// const express = require("express");
+const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
@@ -45,9 +45,9 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-// const PORT = 5000;
+const PORT = 5000;
 
 
-// app.listen(PORT, () => {
-//   console.log("Backend running on port " + PORT);
-// });
+app.listen(PORT, () => {
+  console.log("Backend running on port " + PORT);
+});
