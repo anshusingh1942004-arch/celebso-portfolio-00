@@ -1,19 +1,13 @@
-require("dotenv").config();
-
-// const express = require("express");
-const cors = require("cors");
 const nodemailer = require("nodemailer");
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-app.post("/api/contact", async (req, res) => {
-  const { name, email, phone, message } = req.body;
+exports.handler = async (event) => {
+  const { name, email, phone, message } = JSON.parse(event.body);
 
   if (!name || !email || !message) {
-    return res.status(400).json({ success: false });
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ success: false }),
+    };
   }
 
   try {
@@ -38,16 +32,15 @@ app.post("/api/contact", async (req, res) => {
       `,
     });
 
-    res.json({ success: true });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ success: false });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ success: true }),
+    };
+
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ success: false }),
+    };
   }
-});
-
-// const PORT = 5000;
-
-
-// app.listen(PORT, () => {
-//   console.log("Backend running on port " + PORT);
-// });
+};
