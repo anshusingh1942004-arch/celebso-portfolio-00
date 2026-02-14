@@ -115,7 +115,7 @@ export function Navbar() {
               <Moon className="w-5 h-5 text-slate-700" />
             )}
           </Button>
-          <Button className="rounded-full px-6 shadow-lg shadow-primary/20">Get Started</Button>
+          <Button className="rounded-full px-6 bg-yellow-400 hover:bg-yellow-500 text-black shadow-lg shadow-yellow-500/20 transition-all duration-300">Get Started</Button>
         </div>
 
         {/* Mobile Toggle */}

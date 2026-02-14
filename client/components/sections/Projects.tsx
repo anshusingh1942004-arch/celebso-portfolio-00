@@ -128,8 +128,8 @@ export function Projects() {
               className={cn(
                 "px-8 py-3 rounded-full font-bold transition-all border-2",
                 activeCategory === "technology" 
-                  ? "bg-primary border-primary text-white shadow-lg shadow-primary/20" 
-                  : "bg-transparent border-white/10 text-foreground/50 hover:border-white/20"
+                  ? "bg-yellow-400 border-yellow-400 text-black shadow-lg shadow-yellow-400/30" 
+                  : "bg-transparent border-white/10 text-foreground/50 hover:border-yellow-400 hover:text-yellow-400"
               )}
             >
               Technology
@@ -139,8 +139,8 @@ export function Projects() {
               className={cn(
                 "px-8 py-3 rounded-full font-bold transition-all border-2",
                 activeCategory === "marketing" 
-                  ? "bg-primary border-primary text-white shadow-lg shadow-primary/20" 
-                  : "bg-transparent border-white/10 text-foreground/50 hover:border-white/20"
+                  ? "bg-yellow-400 border-yellow-400 text-black shadow-lg shadow-yellow-400/30" 
+                  : "bg-transparent border-white/10 text-foreground/50 hover:border-yellow-400 hover:text-yellow-400"
               )}
             >
               Marketing & Growth

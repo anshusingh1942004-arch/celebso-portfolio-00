@@ -115,7 +115,11 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={loading}
-            className="md:col-span-2 w-fit mx-auto rounded-full bg-primary text-white px-8 py-3 font-semibold hover:opacity-90 transition"
+            className="md:col-span-2 w-fit mx-auto rounded-full 
+             bg-yellow-400 text-black px-8 py-3 font-semibold 
+             hover:bg-yellow-500 
+             shadow-lg shadow-yellow-400/30 
+             transition-all duration-300"
           >
             {loading ? "Sending..." : "Submit Query"}
           </button>
