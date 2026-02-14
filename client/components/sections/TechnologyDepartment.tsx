@@ -28,7 +28,7 @@ export function TechnologyDepartment() {
   ];
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden/scroll-mt-28" id="technology">
+    <section className="py-24 px-6 relative overflow-hidden/" id="technology">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-16">
@@ -83,7 +83,7 @@ export function TechnologyDepartment() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + fIdx * 0.1 }}
-                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-all"
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-white/20 transition-all cursor-pointer"
                   >
                     <div className="text-primary">{feature.icon}</div>
                     <span className="text-sm font-medium text-foreground/80">
