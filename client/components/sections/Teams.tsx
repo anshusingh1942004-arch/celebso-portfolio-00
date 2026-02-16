@@ -33,7 +33,7 @@ export function Teams() {
         },
         {
           name: "Om Singh",
-          role: "Senior Sales Head",
+          role: "Director of Sales",
           image: image4
         },
         {
