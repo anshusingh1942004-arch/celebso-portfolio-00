@@ -10,6 +10,8 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import { Layout } from "./components/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Gallery from "./pages/GalleryPage";
+
 
 import Marketing from "./pages/Marketing";
 import Technology from "./pages/Technology";
@@ -30,21 +32,25 @@ const App = () => (
         <Sonner />
         
         <BrowserRouter>
-        <ScrollToTop />
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Index />} />
+  <ScrollToTop />
 
-              <Route path="/marketing" element={<Marketing />} />
-              <Route path="/technology" element={<Technology />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/team" element={<Team />} />
+  <Routes>
+    <Route element={<Layout />}>
 
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
-        </BrowserRouter>
+      <Route path="/" element={<Index />} />
+      <Route path="/gallery" element={<Gallery />} />
+      <Route path="/marketing" element={<Marketing />} />
+      <Route path="/technology" element={<Technology />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/team" element={<Team />} />
+
+      <Route path="*" element={<NotFound />} />
+
+    </Route>
+  </Routes>
+
+</BrowserRouter>
+
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
